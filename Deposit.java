@@ -51,7 +51,7 @@ class Deposit extends JFrame
                     double total=0.0;
                     //part1 : establish connection and get balance
                     String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-                    try(Connection con=DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")){
+                    try(Connection con=DriverManager.getConnection(url,"DB_username","DB_password")){ //enter your username and password
                         String sql="select balance from users where username=?";
                         try (PreparedStatement pst=con.prepareStatement(sql)) {
                             pst.setString(1, username);
@@ -75,7 +75,7 @@ class Deposit extends JFrame
                         total=amount+balance;
                     }
                     //part3 update balance after deposit
-                    try(Connection con=DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")){
+                    try(Connection con=DriverManager.getConnection(url,"DB_username","DB_password")){ //enter your username and password
                         String sql="update users set balance=? where username=?";
                         try(PreparedStatement pst=con.prepareStatement(sql)){
                             pst.setDouble(1,total);
@@ -136,7 +136,7 @@ class Deposit extends JFrame
     }
     void updatepassbook(String username,String desc,double amount,double total){
         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-        try(Connection con=DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")){
+        try(Connection con=DriverManager.getConnection(url,"DB_username","DB_password")){ //enter your username and password
             String sql="insert into transactions (username,description,amount,balance) values (?,?,?,?)";
             try(PreparedStatement pst=con.prepareStatement(sql)){
                 pst.setString(1,username);
@@ -156,3 +156,4 @@ class Deposit extends JFrame
         new Deposit("Madhu");
     }
 }
+
