@@ -63,7 +63,7 @@ class Profile extends JFrame {
                     else{
 
                         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-                        try(Connection con=DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")){
+                        try(Connection con=DriverManager.getConnection(url,"DB_username","DB_password")){ //enter your username and password
                             String sql="update users set "+s1+" =? where username=?";
                             try(PreparedStatement pst=con.prepareStatement(sql)){
                                 pst.setString(1,s2);
@@ -80,7 +80,7 @@ class Profile extends JFrame {
                         if(s1.equals("username")){
                             dispose();
                             new Profile(s2);
-                            try(Connection con=DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")){
+                            try(Connection con=DriverManager.getConnection(url,"DB_username","DB_password")){ //enter your username and password
                                 String sql="update transactions set "+s1+" =? where username=?";
                                 try(PreparedStatement pst=con.prepareStatement(sql)){
                                     pst.setString(1,s2);
@@ -142,3 +142,4 @@ class Profile extends JFrame {
         new Profile("Darshu");
     }
 }
+
