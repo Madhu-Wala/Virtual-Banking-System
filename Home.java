@@ -101,7 +101,7 @@ class Home extends JFrame {
         );
 
         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-        try (Connection con = DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")) {
+        try (Connection con = DriverManager.getConnection(url,"DB_username","DB_password")){ //enter your username and password
             String sql = "select balance from users where username=?";
             try (PreparedStatement pst = con.prepareStatement(sql)) {
                 pst.setString(1, username);
@@ -152,3 +152,4 @@ class Home extends JFrame {
         new Home("Madhu");
     }
 }
+
