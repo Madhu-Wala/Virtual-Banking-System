@@ -100,7 +100,7 @@ class Adashboard extends JFrame {
                         max=Double.parseDouble(str2);
                     }
                     String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-                    try (Connection con = DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")) {
+                    try (Connection con = DriverManager.getConnection(url,"DB_username","DB_Password")) {
                         String sql = "select * from users where balance between "+min+" and "+max;
                         try (PreparedStatement pst = con.prepareStatement(sql)) {
 
@@ -124,7 +124,7 @@ class Adashboard extends JFrame {
         );
 
         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-        try (Connection con = DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")) {
+        try (Connection con = DriverManager.getConnection(url,"DB_username","DB_password")) {
             String sql = "select * from users";
             try (PreparedStatement pst = con.prepareStatement(sql)) {
 
@@ -159,3 +159,4 @@ class Adashboard extends JFrame {
         new Adashboard();
     }
 }
+
