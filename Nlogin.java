@@ -98,7 +98,7 @@ class Nlogin extends JFrame {
                 a -> {
                     if (t2.getText().equals(t3.getText())) {
                         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-                        try (Connection con = DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")) {
+                        try (Connection con = DriverManager.getConnection(url,"DB_username","DB_password")){ //enter your username and password
                             String sql = "INSERT INTO users(username,password,phone,email,gender) VALUES(?, ? , ?, ?, ?)";
                             try (PreparedStatement pst = con.prepareStatement(sql)) {
                                 pst.setString(1,t1.getText());
@@ -171,3 +171,4 @@ class Nlogin extends JFrame {
         new Nlogin();
     }
 }
+
