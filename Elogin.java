@@ -51,7 +51,7 @@ class Elogin extends JFrame {
         b1.addActionListener(
                 a->{
                     String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-                    try(Connection con=DriverManager.getConnection(url,"C##MAJAKAAM","majajava123")){
+                    try(Connection con=DriverManager.getConnection(url,"DB_username","DB_password")){ //enter your username and password
                         String sql="select * from users where username=? and password=?";
                         try(PreparedStatement pst=con.prepareStatement(sql)){
                             pst.setString(1,t1.getText());
@@ -118,3 +118,4 @@ class Elogin extends JFrame {
         new Elogin();
     }
 }
+
